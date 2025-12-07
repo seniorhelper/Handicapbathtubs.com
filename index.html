@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handicap Bathtubs | Accessible Walk In Tubs & Wheelchair Transfer Tubs</title>
+  <meta name="description" content="Handicap bathtubs and wheelchair accessible tubs for seniors and people with disabilities. Family-owned since 2012. DIY delivery or full turnkey installation across the U.S. and Canada.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="handicap bathtubs, handicap tubs, wheelchair accessible tubs, walk in tubs, senior bathtubs, accessible bathtubs">
+
+  <!-- Basic Open Graph -->
+  <meta property="og:title" content="Handicap Bathtubs | Accessible Walk In Tubs & Wheelchair Transfer Tubs">
+  <meta property="og:description" content="Handicap bathtubs, walk in tubs and wheelchair transfer tubs with DIY delivery or turnkey installation. Family-owned Aging Safely Baths.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.handicapbathtubs.com/">
+
+  <style>
+    :root {
+      --primary: #1a6d96;      /* spa blue */
+      --primary-light: #e7f4fa;
+      --accent: #88c0d8;
+      --accent-soft: #f6fafc;
+      --dark: #163242;
+      --text: #23323c;
+      --muted: #6b7b86;
+      --bg: #f3f6f8;
+      --white: #ffffff;
+      --shadow-soft: 0 14px 30px rgba(0,0,0,0.08);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(243,246,248,0.92);
+      border-bottom: 1px solid rgba(22,50,66,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #b1e4ff, #1a6d96);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.7);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--dark);
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links a.nav-pill {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(26,109,150,0.35);
+    }
+
+    .nav-links a.nav-pill:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 18px auto 26px auto;
+      padding: 10px 18px 0 18px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 26px;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 11px;
+      border-radius: var(--radius-pill);
+      background: rgba(232,249,255,0.9);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #35c47c;
+      box-shadow: 0 0 0 4px rgba(53,196,124,0.24);
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1.18;
+      color: var(--dark);
+      margin: 4px 0 10px 0;
+    }
+
+    .hero h1 span.highlight {
+      background: linear-gradient(120deg, #35c47c, #1a6d96);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-lede {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .hero-cta-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(130deg, #1a6d96, #35a4c4);
+      border-radius: var(--radius-pill);
+      color: #fff;
+      padding: 11px 22px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(26,109,150,0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .btn-primary span.icon-phone {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .btn-ghost {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(26,109,150,0.24);
+      padding: 9px 16px;
+      background: rgba(255,255,255,0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--dark);
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .hero-trust {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-trust strong {
+      color: var(--dark);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge-chip {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(22,50,66,0.08);
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #35c47c;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at 0 0, #d6f2ff, #1a6d96);
+      border-radius: 32px;
+      padding: 14px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-inner {
+      background: rgba(255,255,255,0.96);
+      border-radius: 24px;
+      padding: 14px;
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 10px;
+    }
+
+    .hero-img-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .hero-img-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-caption {
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-caption strong {
+      color: var(--dark);
+      font-size: 12px;
+    }
+
+    .hero-mini {
+      margin-top: 6px;
+      padding: 8px 10px;
+      border-radius: 16px;
+      background: var(--primary-light);
+      font-size: 11px;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto 60px auto;
+      padding: 0 18px 40px 18px;
+    }
+
+    section {
+      margin-top: 34px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .section-header h2 {
+      font-size: 21px;
+      margin: 0;
+      color: var(--dark);
+    }
+
+    .section-tagline {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .grid-3, .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 14px 16px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+      border: 1px solid rgba(22,50,66,0.04);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 16px;
+      color: var(--dark);
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .card-list {
+      margin: 8px 0 0 0;
+      padding-left: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .strip {
+      margin-top: 28px;
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 14px 18px;
+      background: linear-gradient(110deg, #e7f4fa, #f7fbfd);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.05);
+      border: 1px solid rgba(22,50,66,0.06);
+    }
+
+    .strip h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 17px;
+      color: var(--dark);
+    }
+
+    .strip p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .columns {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stat-blocks {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 700px) {
+      .stat-blocks {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .stat {
+      border-radius: 16px;
+      padding: 10px;
+      background: rgba(255,255,255,0.98);
+      border: 1px solid rgba(22,50,66,0.08);
+      text-align: left;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 15px;
+      color: var(--dark);
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      border: 1px solid rgba(22,50,66,0.1);
+      padding: 8px 9px;
+      text-align: left;
+    }
+
+    .compare-table th {
+      background: var(--primary-light);
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .compare-label {
+      font-weight: 600;
+    }
+
+    .faq-item {
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(22,50,66,0.06);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 6px 0;
+      font-size: 14px;
+      color: var(--dark);
+    }
+
+    .faq-item p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .cta-band {
+      margin-top: 36px;
+      padding: 18px 16px;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 0 0, #1a6d96, #163242);
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 20px;
+      align-items: center;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 900px) {
+      .cta-band {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cta-band h2 {
+      margin: 0 0 6px 0;
+      font-size: 22px;
+    }
+
+    .cta-band p {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .cta-actions {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cta-card {
+      background: rgba(243,246,248,0.08);
+      border-radius: 18px;
+      padding: 10px 12px;
+      font-size: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      margin-top: 10px;
+    }
+
+    .cta-form {
+      background: rgba(255,255,255,0.94);
+      color: var(--dark);
+      border-radius: 20px;
+      padding: 12px 12px 10px 12px;
+    }
+
+    .cta-form h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    @media (max-width: 700px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+
+    .form-group label {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border-radius: 10px;
+      border: 1px solid rgba(22,50,66,0.18);
+      padding: 7px 8px;
+      font-size: 12px;
+      font-family: inherit;
+    }
+
+    .form-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .blog-preview {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 800px) {
+      .blog-preview {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .blog-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 12px 14px 10px 14px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.05);
+      border: 1px solid rgba(22,50,66,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .blog-meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .blog-card h3 {
+      margin: 0;
+      font-size: 15px;
+      color: var(--dark);
+    }
+
+    .blog-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .blog-card a.read-link {
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .pill-nav {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .pill-nav a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(22,50,66,0.08);
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .pill-nav a:hover {
+      text-decoration: none;
+      background: #fff;
+    }
+
+    footer {
+      border-top: 1px solid rgba(22,50,66,0.08);
+      padding: 18px;
+      font-size: 11px;
+      color: var(--muted);
+      background: #eef2f5;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Aging Safely Baths",
+    "url": "https://www.handicapbathtubs.com/",
+    "telephone": "+1-888-779-2284",
+    "sameAs": [
+      "https://www.agingsafelybaths.com",
+      "https://walkintubs4less.com"
+    ],
+    "logo": "https://www.agingsafelybaths.com/wp-content/uploads/2020/10/aging-safely-baths-logo.png",
+    "description": "Handicap bathtubs, walk in tubs and wheelchair accessible bathtubs for seniors and people with disabilities. Family-owned and operated since 2012, offering DIY delivery or professional installation across the U.S. and Canada."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Handicap Bathtubs",
+    "url": "https://www.handicapbathtubs.com/",
+    "description": "Handicap bathtubs, walk in tubs and wheelchair transfer tubs with installation or DIY delivery from Aging Safely Baths.",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Handicap bathtubs"
+      },
+      {
+        "@type": "Thing",
+        "name": "Wheelchair accessible tubs"
+      }
+    ]
+  }
+  </script>
+
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-text">
+        <div class="brand-title">HandicapBathtubs.com</div>
+        <div class="brand-sub">Aging Safely Baths • Est. 2012</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#why-handicap">Why Handicap Bathtubs</a>
+      <a href="#compare">Compare</a>
+      <a href="#install">DIY vs Turnkey</a>
+      <a href="#planner">Tub Planner</a>
+      <a href="#faq">FAQ</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact" class="nav-pill">Call 1-888-779-2284</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="home">
+  <div class="hero-grid">
+    <div>
+      <div class="pill">
+        <span class="pill-dot"></span>
+        Accessible bathing, made personal
+      </div>
+      <h1>
+        Handicap bathtubs that help you <span class="highlight">stay independent</span> and safe at home.
+      </h1>
+      <p class="hero-lede">
+        Handicap bathtubs and wheelchair accessible tubs should do more than look good on a brochure. 
+        They should feel safe when your knee hurts, steady when you are tired, and dignified on the days when you simply want to soak in warm, soothing water without asking for help.
+      </p>
+      <div class="hero-cta-row">
+        <a href="tel:1-888-779-2284" class="btn-primary">
+          <span class="icon-phone">📞</span>
+          <span>Call Toll Free 1-888-779-2284</span>
+        </a>
+        <a href="#contact" class="btn-ghost">
+          Get a free handicap bathtub quote →
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div>
+          <strong>Family-owned &amp; operated since 2012.</strong><br>
+          Serving the entire U.S. and many parts of Canada with handicap bathtubs, walk in tubs and wheelchair transfer tubs.
+        </div>
+        <div class="hero-badges">
+          <span class="badge-chip">
+            <span class="badge-dot"></span> ADA-friendly designs
+          </span>
+          <span class="badge-chip">
+            <span class="badge-dot"></span> DIY delivery or turnkey install
+          </span>
+          <span class="badge-chip">
+            <span class="badge-dot"></span> Over 100+ tub sizes and models
+          </span>
+        </div>
+      </div>
+
+      <div class="pill-nav">
+        <a href="#why-handicap">Why handicap bathtubs?</a>
+        <a href="#compare">Compare to big brands</a>
+        <a href="#install">DIY vs professional install</a>
+        <a href="#planner">Walk-In Tub Planner</a>
+        <a href="#blog">Handicap bathtub guides</a>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <div class="hero-card-inner">
+        <div class="hero-img-wrap">
+          <!-- XXL transfer walk in tub -->
+          <img src="https://cdn.shopify.com/s/files/1/0932/0841/2441/files/large_walk_in_tubs.jpg?v=1754667577" alt="Handicap bathtub XXL transfer walk in tub">
+        </div>
+        <div class="hero-caption">
+          <div>
+            <strong>Wheelchair transfer handicap tub</strong><br>
+            Designed for easier lateral transfers, non-slip floor, and a wider door opening for mobility devices.
+          </div>
+          <div>
+            <span style="font-size:11px; font-weight:600;">Ships nationwide</span><br>
+            <span style="font-size:11px;">DIY delivery or turnkey installation</span>
+          </div>
+        </div>
+        <div class="hero-mini">
+          “Our customers are often comparing Kohler walk in tubs, American Standard and Safe Step. 
+          We help them see where a family-owned company can offer just as much quality, with more personalized service and often thousands in savings.”
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<main>
+
+  <!-- WHY HANDICAP BATHTUBS -->
+  <section id="why-handicap">
+    <div class="section-header">
+      <h2>What makes a bathtub truly “handicap accessible”?</h2>
+      <div class="section-tagline">
+        Handicap bathtubs are more than a taller tub with a door. The right design can reduce fall risk, 
+        support caregivers, and help seniors confidently age in place at home.:contentReference[oaicite:0]{index=0}
+      </div>
+    </div>
+
+    <div class="columns">
+      <div>
+        <div class="card">
+          <div class="card-tag">Beyond buzzwords</div>
+          <h3>Accessible design that matches real life, not just brochures</h3>
+          <p>
+            If you search for handicap bathtubs online, most pages repeat the same talking points: 
+            “low step-in, built-in seat, grab bars.” Those features matter, but they are only part of the story. 
+            What really matters is how the tub feels on a day when you are in pain, tired, or worried about falling.
+          </p>
+          <p>
+            At Aging Safely Baths, we start with one simple question: <strong>“How do you move today?”</strong>
+            Do you use a walker, cane, or wheelchair? Do you struggle more getting down into a tub, or getting back up? 
+            Does a caregiver help you, or do you want to bathe alone as long as possible?
+          </p>
+          <p>
+            From there, we match you with handicap bathtub options that align with real life:
+          </p>
+          <ul class="card-list">
+            <li>Walk in tubs with chair-height seating and arm-level grab bars for easier standing.</li>
+            <li>Wheelchair transfer bathtubs with side-access doors and built-in transfer benches.</li>
+            <li>Compact handicap tubs that fit smaller bathrooms without sacrificing safety features.</li>
+            <li>Soaker-only models and hydrotherapy tubs for arthritis, joint pain and circulation support.:contentReference[oaicite:1]{index=1}</li>
+          </ul>
+        </div>
+
+        <div class="strip">
+          <h3>Bathroom falls are common — handicap bathtubs can help reduce risk</h3>
+          <p>
+            Bathrooms are one of the most dangerous rooms in the home for older adults. 
+            Falls are a leading cause of injury, and stepping over a high bathtub wall is a major risk factor.:contentReference[oaicite:2]{index=2}
+            A properly designed handicap bathtub replaces that high step with a low threshold, integrated seating and internal grab bars.
+          </p>
+          <p>
+            Our goal is simple: <strong>a calmer, safer, less stressful bathing routine</strong> — for you and for the people who care about you.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="stat-blocks">
+          <div class="stat">
+            <strong>80%+</strong>
+            of home falls are believed to happen in the bathroom or on similar hard surfaces, according to multiple safety studies.:contentReference[oaicite:3]{index=3}
+          </div>
+          <div class="stat">
+            <strong>36M</strong>
+            estimated falls among older adults in the U.S. every year — many involving slippery bathroom floors and high tub walls.:contentReference[oaicite:4]{index=4}
+          </div>
+          <div class="stat">
+            <strong>Positive impact</strong>
+            Most walk in tub users report improved confidence and independence bathing on their own.:contentReference[oaicite:5]{index=5}
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <div class="card-tag">Real customer story</div>
+          <h3>“We finally feel comfortable letting Mom bathe on her own again.”</h3>
+          <p>
+            One of our customers, Mr. and Mrs. Myers, had tried grab bars and bath chairs, but they still worried every time it was 
+            time for a bath. A handicap walk in tub with a low threshold and built-in seat changed their routine completely.
+          </p>
+          <div class="hero-img-wrap" style="margin-top:8px;">
+            <!-- Myers happy customer image -->
+            <img src="https://cdn.shopify.com/s/files/1/0932/0841/2441/files/best_walk_in_tub_image.jpg?v=1743199631" alt="Happy handicap bathtub customer">
+          </div>
+          <p style="margin-top:6px;">
+            “The peace of mind is worth everything,” they told us. “Mom can soak and relax, and we are not hovering outside the door worried about a fall.”
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE SECTION -->
+  <section id="compare">
+    <div class="section-header">
+      <h2>Handicap bathtubs: family-owned vs big national brands</h2>
+      <div class="section-tagline">
+        Considering well-known names like Kohler walk in tubs, American Standard and Safe Step? Learn how a 
+        family-owned company like Aging Safely Baths compares on price, selection and support.
+      </div>
+    </div>
+
+    <div class="strip">
+      <h3>Before you choose a multi-billion-dollar brand, read this</h3>
+      <p>
+        There is nothing wrong with exploring big national brands — many homeowners recognize names like 
+        <strong>Kohler walk in tubs</strong>, <strong>American Standard</strong> or <strong>Safe Step</strong> from TV commercials and glossy mailers. 
+        But large marketing budgets and high overhead can show up in the final price you are asked to pay.
+      </p>
+      <p>
+        Aging Safely Baths takes a different approach. We operate nationally, but we stay small enough to know our customers by name. 
+        Instead of pushing a single “one-size-fits-all” handicap tub, we carry multiple premium brands and over 100 configurations 
+        so you can choose what actually fits your body, your bathroom and your budget.
+      </p>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Big national brands<br><span style="font-weight:400;">(Kohler, American Standard, Safe Step, etc.)</span></th>
+            <th>Aging Safely Baths<br><span style="font-weight:400;">(HandicapBathtubs.com)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="compare-label">Pricing</td>
+            <td>Often $25,000–$30,000+ installed once marketing, sales commissions and overhead are built in.</td>
+            <td>Transparent pricing with options for DIY delivery or turnkey install. Many customers save thousands vs big brand quotes.</td>
+          </tr>
+          <tr>
+            <td class="compare-label">Selection</td>
+            <td>Usually limited to one primary walk in tub line and a handful of sizes or door styles.</td>
+            <td>Over 100+ walk in tub and handicap bathtub combinations, including wheelchair transfer models and compact designs.</td>
+          </tr>
+          <tr>
+            <td class="compare-label">Approach</td>
+            <td>High-pressure in-home sales is common. Appointments can feel rushed or scripted.</td>
+            <td>Educational, low-pressure conversations. We walk through your mobility, bathroom layout and budget step by step.</td>
+          </tr>
+          <tr>
+            <td class="compare-label">Company size</td>
+            <td>Multi-billion-dollar corporations with complex call centers and layers of departments.</td>
+            <td>Family-owned, focused on seniors and caregivers since 2012. You can often speak with the same specialist twice.</td>
+          </tr>
+          <tr>
+            <td class="compare-label">Bathing goals</td>
+            <td>Typically focused on one flagship product line.</td>
+            <td>Focused on helping you age in place safely — with handicap bathtubs, roll in showers and customized hydrotherapy options.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:10px;">
+        Our advice is simple: <strong>get multiple quotes, ask lots of questions and compare your options side by side.</strong> 
+        Before you sign a contract for a $30,000 walk in tub, reach out to an Aging Safely Baths specialist. 
+        Many customers are pleasantly surprised by how much they can save while still getting top-tier accessibility and hydrotherapy features.
+      </p>
+    </div>
+  </section>
+
+  <!-- DIY VS TURNKEY -->
+  <section id="install">
+    <div class="section-header">
+      <h2>DIY delivery vs full turnkey installation — which is right for you?</h2>
+      <div class="section-tagline">
+        One of the biggest advantages of working with Aging Safely Baths is choice. You decide how hands-on (or hands-off) you want to be.
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-tag">Turnkey installation</div>
+        <h3>“Handle it all for me” — our worry-free option</h3>
+        <p>
+          If you or your loved one would rather not coordinate multiple contractors, our turnkey handicap bathtub installation is designed for you.
+        </p>
+        <ul class="card-list">
+          <li>We help you select the right handicap bathtub or walk in tub for your needs and bathroom layout.</li>
+          <li>Our professional team removes your old bathtub or shower and disposes of debris.</li>
+          <li>Plumbing and, if needed, electrical are handled by licensed professionals.</li>
+          <li>We install your new handicap tub, test all functions and walk you through operation and maintenance.</li>
+          <li>We review your warranty and answer questions before we leave the home.</li>
+        </ul>
+        <p style="margin-top:8px;">
+          This path is ideal for homeowners who want a single point of contact, a clear completion date and reassurance that 
+          everything was installed per manufacturer guidelines for full warranty protection.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-tag">DIY delivery</div>
+        <h3>“I have a contractor” — keep control and still get support</h3>
+        <p>
+          Many customers have a trusted contractor, plumber or family member in the trades. In that case, 
+          DIY delivery can be a smart way to save on labor while still getting the quality handicap bathtub you need.
+        </p>
+        <ul class="card-list">
+          <li>We ship the handicap bathtub directly to your home or job site anywhere in the U.S. and many parts of Canada.</li>
+          <li>You or your contractor handle demolition and installation at your own pace.</li>
+          <li>Our team remains available for technical support and installation questions.</li>
+          <li>When installed according to manufacturer guidelines, your warranty remains in place.</li>
+        </ul>
+        <p style="margin-top:8px;">
+          DIY delivery does not mean you are on your own. It simply means you control the timeline and choose who does the labor — 
+          while still benefiting from our product expertise and support.
+        </p>
+
+        <div class="hero-img-wrap" style="margin-top:10px;">
+          <!-- tub being received from shipping -->
+          <img src="https://cdn.shopify.com/s/files/1/0932/0841/2441/files/denverwalkintubimage.jpg?v=1741929811" alt="Handicap bathtub shipment delivered to home">
+        </div>
+        <p style="font-size:12px; color:var(--muted); margin-top:4px;">
+          Handicap bathtub being delivered to a customer’s driveway. Many tubs can be shipped directly to your door anywhere in the U.S. or Canada.
+        </p>
+      </div>
+    </div>
+
+    <div class="strip">
+      <h3>Not sure which path fits you best?</h3>
+      <p>
+        It is completely normal to feel unsure which option is best. During your free phone consultation, 
+        we will walk through your budget, timeline, health needs and support system.
+      </p>
+      <p>
+        If you have a caregiver or family member helping with bathing, we also encourage them to join the call. 
+        Handicap bathtubs often serve both the person bathing and the person assisting — and the right 
+        configuration can make life easier for everyone.
+      </p>
+    </div>
+  </section>
+
+  <!-- WALK-IN TUB PLANNER LINK -->
+  <section id="planner">
+    <div class="section-header">
+      <h2>Use our Walk-In Tub Planner to clarify your handicap bathtub needs</h2>
+      <div class="section-tagline">
+        Not ready to talk to anyone yet? Our free walk-in tub planner helps you organize measurements, 
+        health considerations and must-have features before you call.
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-tag">Free planning tool</div>
+        <h3>Download or print the planner before you commit to any brand</h3>
+        <p>
+          The <a href="https://walkintubs4less.com/pages/walk-in-tub-planner" target="_blank" rel="noopener">Walk-In Tub Planner</a> 
+          was created to help seniors, caregivers and contractors ask better questions before buying a handicap bathtub or walk in tub.
+        </p>
+        <ul class="card-list">
+          <li>Room to record bathroom measurements and door widths.</li>
+          <li>Questions about circulation, arthritis, balance and transfer needs.</li>
+          <li>Space to compare quotes from different companies side by side.</li>
+          <li>Reminders about electrical, drain location, and hot water capacity.</li>
+        </ul>
+        <p style="margin-top:8px;">
+          Even if you ultimately choose another company, this planner will help ensure you choose a handicap bathtub 
+          that actually fits your space, your health needs and your long-term plans to age in place.
+        </p>
+        <p style="margin-top:8px;">
+          <a href="https://walkintubs4less.com/pages/walk-in-tub-planner" target="_blank" rel="noopener">
+            Open the Walk-In Tub Planner in a new tab →
+          </a>
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-tag">Hydrotherapy & comfort</div>
+        <h3>Handicap bathtubs can be safe <em>and</em> spa-like</h3>
+        <p>
+          A common misconception is that handicap bathtubs are purely functional and clinical. 
+          In reality, many accessible tubs include warm air jets, hydrotherapy systems, heated seats and backrests that can help:
+        </p>
+        <ul class="card-list">
+          <li>Ease arthritis pain and muscle tension.</li>
+          <li>Support circulation and post-surgery recovery (with doctor guidance).:contentReference[oaicite:6]{index=6}</li>
+          <li>Promote relaxation, deeper sleep and stress relief.</li>
+        </ul>
+        <p style="margin-top:8px;">
+          Our team can help you decide whether a soaker, air system, water jet system or combination system makes the most sense for your health, budget and local water quality.
+        </p>
+
+        <div class="hero-img-wrap" style="margin-top:10px;">
+          <!-- wheelchair accessible transfer bathtub -->
+          <img src="https://cdn.shopify.com/s/files/1/0932/0841/2441/files/s747262047514780878_p1488_i13_w1400.webp?v=1743640894" alt="Wheelchair accessible handicap bathtub">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq">
+    <div class="section-header">
+      <h2>Handicap bathtub questions we hear every day</h2>
+      <div class="section-tagline">
+        These are the types of questions seniors and caregivers ask us before they choose a handicap tub, walk in tub or wheelchair transfer bathtub.
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="faq-item">
+          <h3>How is a handicap bathtub different from a regular walk in tub?</h3>
+          <p>
+            All handicap bathtubs are walk in tubs, but not all walk in tubs are ideal for people with disabilities or mobility challenges.
+            True handicap tubs are designed with accessibility first: lower threshold heights, secure grab bar placement, 
+            wheelchair-friendly door openings, transfer benches, non-slip floors and easy-to-reach controls.:contentReference[oaicite:7]{index=7}
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Will Medicare or insurance pay for a handicap bathtub?</h3>
+          <p>
+            In most cases, traditional Medicare treats handicap tubs and walk in bathtubs as home upgrades, not covered medical equipment. 
+            However, some Medicare Advantage plans, Medicaid programs, VA benefits and local grant programs may offer assistance for accessibility 
+            modifications. The best first step is to call your plan and ask specifically about accessibility or bathroom safety benefits.:contentReference[oaicite:8]{index=8}
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>How long does installation usually take?</h3>
+          <p>
+            Many handicap bathtubs can be installed in as little as one to three days once materials are on site — especially when replacing 
+            an existing tub in the same footprint. More complex projects, like moving plumbing or converting from a small shower, can take longer.:contentReference[oaicite:9]{index=9}
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="faq-item">
+          <h3>What if my bathroom is very small?</h3>
+          <p>
+            Small bathrooms are common. In those cases, we often recommend compact handicap tubs, front-drain designs or carefully selected 
+            wheelchair transfer tubs that minimize space while maximizing safety. We can review photos, basic measurements and your mobility 
+            needs to propose specific options.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Can you help if I also need a handicap shower?</h3>
+          <p>
+            Yes. Aging Safely Baths also offers <a href="https://www.agingsafelybaths.com/handicap-showers/" target="_blank" rel="noopener">handicap showers and roll in shower systems</a> designed for wheelchairs and walkers. 
+            Some customers choose a handicap bathtub in one bathroom and a barrier-free shower in another to cover all scenarios.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Where can I learn more about safety and hydrotherapy?</h3>
+          <p>
+            Our Safety &amp; Self-Care blog on <a href="https://www.agingsafelybaths.com" target="_blank" rel="noopener">AgingSafelyBaths.com</a> shares practical tips on preventing falls, using hydrotherapy and improving quality of life with walk in tubs and handicap bathtubs.:contentReference[oaicite:10]{index=10}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG PREVIEW -->
+  <section id="blog">
+    <div class="section-header">
+      <h2>Handicap bathtub blog</h2>
+      <div class="section-tagline">
+        In-depth articles to help you compare options, understand costs and plan the right handicap bathing solution for your home.
+      </div>
+    </div>
+
+    <div class="blog-preview">
+      <article class="blog-card">
+        <div class="blog-meta">Education • 7–9 minute read</div>
+        <h3>Handicap Bathtubs vs Standard Tubs: What Seniors and Caregivers Overlook</h3>
+        <p>
+          A side-by-side look at standard tubs and true handicap bathtubs — including transfer safety, pain levels, caregiver 
+          strain and long-term aging in place.
+        </p>
+        <a href="blog-handicap-vs-standard-bathtubs.html" class="read-link">Read this article →</a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-meta">Planning • 7–9 minute read</div>
+        <h3>How to Choose the Right Wheelchair Accessible Bathtub Layout for Your Bathroom</h3>
+        <p>
+          Learn how door swing direction, plumbing location and wheelchair turning radius all affect which handicap bathtub layout will actually work in your space.
+        </p>
+        <a href="blog-wheelchair-accessible-bathtub-layouts.html" class="read-link">Read this article →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA & CONTACT -->
+  <section id="contact">
+    <div class="cta-band">
+      <div>
+        <h2>Ready to explore handicap bathtub options for your home?</h2>
+        <p>
+          Whether you are in the early research phase or comparing a quote from a big national brand, we are here to help. 
+          A short conversation can save you time, stress and sometimes thousands of dollars on a safer, more comfortable handicap bathtub.
+        </p>
+        <div class="cta-actions">
+          <a href="tel:1-888-779-2284" class="btn-primary">
+            <span class="icon-phone">📞</span>
+            <span>Call 1-888-779-2284</span>
+          </a>
+          <a href="#planner" class="btn-ghost">Use the Walk-In Tub Planner first</a>
+        </div>
+        <div class="cta-card">
+          Prefer email? Fill out the form and ask us anything — cost ranges, model comparisons, how handicap bathtubs fit with existing grab bars, or whether a roll in shower might be a better fit.
+        </div>
+      </div>
+
+      <div class="cta-form">
+        <h3>Request handicap bathtub information</h3>
+        <form id="handicapbathtubs-contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="hb-name">Name</label>
+              <input type="text" id="hb-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="hb-phone">Phone</label>
+              <input type="tel" id="hb-phone" name="phone" placeholder="Best phone number">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="hb-email">Email</label>
+              <input type="email" id="hb-email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="hb-zip">ZIP / Postal code</label>
+              <input type="text" id="hb-zip" name="zip" placeholder="ZIP or postal code">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="hb-interest">What are you most interested in?</label>
+              <select id="hb-interest" name="interest">
+                <option value="">Please choose…</option>
+                <option value="handicap-bathtub">Handicap bathtub / walk in tub</option>
+                <option value="wheelchair-transfer-tub">Wheelchair transfer bathtub</option>
+                <option value="handicap-shower">Handicap / roll in shower</option>
+                <option value="compare-big-brands">Comparing quotes with big national brands</option>
+                <option value="just-researching">Just researching options</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="hb-install">Installation preference</label>
+              <select id="hb-install" name="install_preference">
+                <option value="">Not sure yet</option>
+                <option value="turnkey">Turnkey installation (handle everything)</option>
+                <option value="diy-with-contractor">DIY delivery (I have a contractor)</option>
+                <option value="explore-both">I want to explore both</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="hb-message">Tell us a little about your bathroom and mobility needs</label>
+            <textarea id="hb-message" name="message" rows="3" placeholder="Example: 78-year-old with arthritis, uses a walker, small bathroom with existing tub/shower combo."></textarea>
+          </div>
+
+          <input type="hidden" name="source_site" value="handicapbathtubs.com">
+
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center; margin-top:4px;">
+            Request my handicap bathtub options
+          </button>
+          <div class="form-note">
+            By submitting, you agree that an Aging Safely Baths representative may contact you regarding handicap bathtubs and accessibility solutions. 
+            We do not sell your information to third parties.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div style="max-width:1120px; margin:0 auto;">
+    HandicapBathtubs.com is operated by Aging Safely Baths, a family-owned company helping seniors and people with disabilities since 2012.
+    <br>
+    Explore related solutions at 
+    <a href="https://www.agingsafelybaths.com/walk-in-tubs/" target="_blank" rel="noopener">AgingSafelyBaths.com – Walk In Tubs</a> 
+    and 
+    <a href="https://www.agingsafelybaths.com/handicap-showers/" target="_blank" rel="noopener">Handicap Showers</a>.
+    <br><br>
+    Call Toll Free: 1-888-779-2284
+  </div>
+</footer>
+
+<!-- EmailJS or other form handler wiring goes here -->
+<script>
+  // NOTE: Reuse the same form handling structure we used on your earlier microsite.
+  // Example EmailJS wiring (replace with your actual IDs/keys):
+
+  /*
+  (function(){
+    emailjs.init("YOUR_PUBLIC_KEY_HERE");
+  })();
+
+  document.getElementById('handicapbathtubs-contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+      .then(function() {
+        alert('Thank you! Your message has been sent. An Aging Safely Baths representative will follow up shortly.');
+      }, function(error) {
+        alert('There was an issue sending your request. Please call 1-888-779-2284 or try again.');
+      });
+  });
+  */
+</script>
+
+</body>
+</html>
