@@ -6,6 +6,7 @@
   <meta name="description" content="Handicap bathtubs and wheelchair accessible tubs for seniors and people with disabilities. Family-owned since 2012. DIY delivery or full turnkey installation across the U.S. and Canada.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="handicap bathtubs, handicap tubs, wheelchair accessible tubs, walk in tubs, senior bathtubs, accessible bathtubs">
+  <link rel="canonical" href="https://www.handicapbathtubs.com/">
 
   <!-- Basic Open Graph -->
   <meta property="og:title" content="Handicap Bathtubs | Accessible Walk In Tubs & Wheelchair Transfer Tubs">
@@ -56,7 +57,7 @@
       top: 0;
       z-index: 100;
       backdrop-filter: blur(16px);
-      background: rgba(243,246,248,0.92);
+      background: rgba(243,246,248,0.96);
       border-bottom: 1px solid rgba(22,50,66,0.06);
     }
 
@@ -67,6 +68,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
     }
 
     .brand {
@@ -75,22 +77,10 @@
       gap: 10px;
     }
 
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, #b1e4ff, #1a6d96);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .brand-mark::before {
-      content: "";
-      position: absolute;
-      inset: 8px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.7);
+    .brand-logo {
+      display: block;
+      width: 120px;
+      height: auto;
     }
 
     .brand-text {
@@ -125,6 +115,7 @@
       border-radius: 999px;
       color: var(--muted);
       font-weight: 500;
+      white-space: nowrap;
     }
 
     .nav-links a.nav-pill {
@@ -139,8 +130,14 @@
     }
 
     @media (max-width: 768px) {
+      .nav-inner {
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
       .nav-links {
-        display: none;
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
       }
     }
 
@@ -249,7 +246,7 @@
       border-radius: var(--radius-pill);
       border: 1px solid rgba(26,109,150,0.24);
       padding: 9px 16px;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.92);
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -711,6 +708,35 @@
       background: #fff;
     }
 
+    .locations-strip {
+      margin-top: 28px;
+      padding: 14px 14px 12px 14px;
+      border-radius: var(--radius-xl);
+      background: var(--accent-soft);
+      border: 1px solid rgba(22,50,66,0.06);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .locations-strip strong {
+      color: var(--dark);
+    }
+
+    .locations-links {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .locations-links a {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(22,50,66,0.08);
+      font-size: 11px;
+    }
+
     footer {
       border-top: 1px solid rgba(22,50,66,0.08);
       padding: 18px;
@@ -727,6 +753,19 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .footer-links-row {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 11px;
+    }
   </style>
 
   <!-- JSON-LD Schema -->
@@ -741,7 +780,7 @@
       "https://www.agingsafelybaths.com",
       "https://walkintubs4less.com"
     ],
-    "logo": "https://www.agingsafelybaths.com/wp-content/uploads/2020/10/aging-safely-baths-logo.png",
+    "logo": "https://www.agingsafelybaths.com/wp-content/uploads/2025/06/logo-364-112.png",
     "description": "Handicap bathtubs, walk in tubs and wheelchair accessible bathtubs for seniors and people with disabilities. Family-owned and operated since 2012, offering DIY delivery or professional installation across the U.S. and Canada."
   }
   </script>
@@ -754,14 +793,9 @@
     "url": "https://www.handicapbathtubs.com/",
     "description": "Handicap bathtubs, walk in tubs and wheelchair transfer tubs with installation or DIY delivery from Aging Safely Baths.",
     "about": [
-      {
-        "@type": "Thing",
-        "name": "Handicap bathtubs"
-      },
-      {
-        "@type": "Thing",
-        "name": "Wheelchair accessible tubs"
-      }
+      { "@type": "Thing", "name": "Handicap bathtubs" },
+      { "@type": "Thing", "name": "Wheelchair accessible tubs" },
+      { "@type": "Thing", "name": "Walk in tubs" }
     ]
   }
   </script>
@@ -772,7 +806,7 @@
 <header>
   <div class="nav-inner">
     <div class="brand">
-      <div class="brand-mark"></div>
+      <img src="https://www.agingsafelybaths.com/wp-content/uploads/2025/06/logo-364-112.png" alt="Aging Safely Baths handicap bathtubs logo" class="brand-logo">
       <div class="brand-text">
         <div class="brand-title">HandicapBathtubs.com</div>
         <div class="brand-sub">Aging Safely Baths • Est. 2012</div>
@@ -802,7 +836,7 @@
         Handicap bathtubs that help you <span class="highlight">stay independent</span> and safe at home.
       </h1>
       <p class="hero-lede">
-        Handicap bathtubs and wheelchair accessible tubs should do more than look good on a brochure. 
+        Handicap bathtubs and wheelchair accessible tubs should do more than look good on a brochure.
         They should feel safe when your knee hurts, steady when you are tired, and dignified on the days when you simply want to soak in warm, soothing water without asking for help.
       </p>
       <div class="hero-cta-row">
@@ -858,8 +892,7 @@
           </div>
         </div>
         <div class="hero-mini">
-          “Our customers are often comparing Kohler walk in tubs, American Standard and Safe Step. 
-          We help them see where a family-owned company can offer just as much quality, with more personalized service and often thousands in savings.”
+          “Our customers are often comparing national walk in tub brands. We help them see where a family-owned company can offer just as much quality, with more personalized service and often thousands in savings.”
         </div>
       </div>
     </aside>
@@ -873,8 +906,7 @@
     <div class="section-header">
       <h2>What makes a bathtub truly “handicap accessible”?</h2>
       <div class="section-tagline">
-        Handicap bathtubs are more than a taller tub with a door. The right design can reduce fall risk, 
-        support caregivers, and help seniors confidently age in place at home.:contentReference[oaicite:0]{index=0}
+        Handicap bathtubs are more than a taller tub with a door. The right design can reduce fall risk, support caregivers, and help seniors confidently age in place at home.
       </div>
     </div>
 
@@ -884,13 +916,13 @@
           <div class="card-tag">Beyond buzzwords</div>
           <h3>Accessible design that matches real life, not just brochures</h3>
           <p>
-            If you search for handicap bathtubs online, most pages repeat the same talking points: 
-            “low step-in, built-in seat, grab bars.” Those features matter, but they are only part of the story. 
+            If you search for handicap bathtubs online, most pages repeat the same talking points:
+            “low step-in, built-in seat, grab bars.” Those features matter, but they are only part of the story.
             What really matters is how the tub feels on a day when you are in pain, tired, or worried about falling.
           </p>
           <p>
             At Aging Safely Baths, we start with one simple question: <strong>“How do you move today?”</strong>
-            Do you use a walker, cane, or wheelchair? Do you struggle more getting down into a tub, or getting back up? 
+            Do you use a walker, cane, or wheelchair? Do you struggle more getting down into a tub, or getting back up?
             Does a caregiver help you, or do you want to bathe alone as long as possible?
           </p>
           <p>
@@ -900,15 +932,15 @@
             <li>Walk in tubs with chair-height seating and arm-level grab bars for easier standing.</li>
             <li>Wheelchair transfer bathtubs with side-access doors and built-in transfer benches.</li>
             <li>Compact handicap tubs that fit smaller bathrooms without sacrificing safety features.</li>
-            <li>Soaker-only models and hydrotherapy tubs for arthritis, joint pain and circulation support.:contentReference[oaicite:1]{index=1}</li>
+            <li>Soaker-only models and hydrotherapy tubs for comfort, relaxation and circulation support.</li>
           </ul>
         </div>
 
         <div class="strip">
           <h3>Bathroom falls are common — handicap bathtubs can help reduce risk</h3>
           <p>
-            Bathrooms are one of the most dangerous rooms in the home for older adults. 
-            Falls are a leading cause of injury, and stepping over a high bathtub wall is a major risk factor.:contentReference[oaicite:2]{index=2}
+            Bathrooms are one of the most challenging rooms in the home for older adults.
+            Falls are a leading cause of injury, and stepping over a high bathtub wall while balancing on one foot can be especially risky.
             A properly designed handicap bathtub replaces that high step with a low threshold, integrated seating and internal grab bars.
           </p>
           <p>
@@ -921,15 +953,15 @@
         <div class="stat-blocks">
           <div class="stat">
             <strong>80%+</strong>
-            of home falls are believed to happen in the bathroom or on similar hard surfaces, according to multiple safety studies.:contentReference[oaicite:3]{index=3}
+            of home falls are believed to happen in the bathroom or on similar hard surfaces, according to many safety reports.
           </div>
           <div class="stat">
-            <strong>36M</strong>
-            estimated falls among older adults in the U.S. every year — many involving slippery bathroom floors and high tub walls.:contentReference[oaicite:4]{index=4}
+            <strong>Millions</strong>
+            of older adults experience falls every year in the U.S. — many involving slippery bathroom floors and high tub walls.
           </div>
           <div class="stat">
-            <strong>Positive impact</strong>
-            Most walk in tub users report improved confidence and independence bathing on their own.:contentReference[oaicite:5]{index=5}
+            <strong>More confidence</strong>
+            Many walk in tub and handicap bathtub users report feeling more confident and independent when bathing.
           </div>
         </div>
 
@@ -937,12 +969,11 @@
           <div class="card-tag">Real customer story</div>
           <h3>“We finally feel comfortable letting Mom bathe on her own again.”</h3>
           <p>
-            One of our customers, Mr. and Mrs. Myers, had tried grab bars and bath chairs, but they still worried every time it was 
-            time for a bath. A handicap walk in tub with a low threshold and built-in seat changed their routine completely.
+            One of our customers had tried grab bars and bath chairs, but they still worried every time it was time for a bath.
+            A handicap walk in tub with a low threshold and built-in seat changed their routine completely.
           </p>
           <div class="hero-img-wrap" style="margin-top:8px;">
-            <!-- Myers happy customer image -->
-            <img src="https://cdn.shopify.com/s/files/1/0932/0841/2441/files/best_walk_in_tub_image.jpg?v=1743199631" alt="Happy handicap bathtub customer">
+            <img src="https://cdn.shopify.com/s/files/1/0932/0841/2441/files/best_walk_in_tub_image.jpg?v=1743199631" alt="Handicap bathtub customer enjoying safer bathing">
           </div>
           <p style="margin-top:6px;">
             “The peace of mind is worth everything,” they told us. “Mom can soak and relax, and we are not hovering outside the door worried about a fall.”
@@ -955,23 +986,21 @@
   <!-- COMPARE SECTION -->
   <section id="compare">
     <div class="section-header">
-      <h2>Handicap bathtubs: family-owned vs big national brands</h2>
+      <h2>Handicap bathtubs: family-owned guidance vs big national brands</h2>
       <div class="section-tagline">
-        Considering well-known names like Kohler walk in tubs, American Standard and Safe Step? Learn how a 
-        family-owned company like Aging Safely Baths compares on price, selection and support.
+        Considering well-known TV brands? Learn how a family-owned company compares on price, selection and support for handicap bathtubs and walk in tubs.
       </div>
     </div>
 
     <div class="strip">
-      <h3>Before you choose a multi-billion-dollar brand, read this</h3>
+      <h3>Before you choose a high-pressure brand, slow down and compare</h3>
       <p>
-        There is nothing wrong with exploring big national brands — many homeowners recognize names like 
-        <strong>Kohler walk in tubs</strong>, <strong>American Standard</strong> or <strong>Safe Step</strong> from TV commercials and glossy mailers. 
+        There is nothing wrong with exploring big national names — many homeowners recognize them from commercials and glossy mailers.
         But large marketing budgets and high overhead can show up in the final price you are asked to pay.
       </p>
       <p>
-        Aging Safely Baths takes a different approach. We operate nationally, but we stay small enough to know our customers by name. 
-        Instead of pushing a single “one-size-fits-all” handicap tub, we carry multiple premium brands and over 100 configurations 
+        Aging Safely Baths takes a different approach. We operate nationally, yet we stay small enough to know our customers by name.
+        Instead of pushing a single “one-size-fits-all” handicap tub, we carry multiple premium brands and over 100 configurations
         so you can choose what actually fits your body, your bathroom and your budget.
       </p>
 
@@ -979,19 +1008,19 @@
         <thead>
           <tr>
             <th></th>
-            <th>Big national brands<br><span style="font-weight:400;">(Kohler, American Standard, Safe Step, etc.)</span></th>
+            <th>Big national brands</th>
             <th>Aging Safely Baths<br><span style="font-weight:400;">(HandicapBathtubs.com)</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="compare-label">Pricing</td>
-            <td>Often $25,000–$30,000+ installed once marketing, sales commissions and overhead are built in.</td>
-            <td>Transparent pricing with options for DIY delivery or turnkey install. Many customers save thousands vs big brand quotes.</td>
+            <td>Often very high once marketing, sales commissions and overhead are built in.</td>
+            <td>Transparent pricing with options for DIY delivery or turnkey install. Many customers save thousands compared to big-brand quotes.</td>
           </tr>
           <tr>
             <td class="compare-label">Selection</td>
-            <td>Usually limited to one primary walk in tub line and a handful of sizes or door styles.</td>
+            <td>Usually limited to one primary tub line and a handful of sizes or door styles.</td>
             <td>Over 100+ walk in tub and handicap bathtub combinations, including wheelchair transfer models and compact designs.</td>
           </tr>
           <tr>
@@ -1001,20 +1030,20 @@
           </tr>
           <tr>
             <td class="compare-label">Company size</td>
-            <td>Multi-billion-dollar corporations with complex call centers and layers of departments.</td>
+            <td>Large corporations with complex call centers and layers of departments.</td>
             <td>Family-owned, focused on seniors and caregivers since 2012. You can often speak with the same specialist twice.</td>
           </tr>
           <tr>
             <td class="compare-label">Bathing goals</td>
-            <td>Typically focused on one flagship product line.</td>
+            <td>Typically focused on a single flagship product line.</td>
             <td>Focused on helping you age in place safely — with handicap bathtubs, roll in showers and customized hydrotherapy options.</td>
           </tr>
         </tbody>
       </table>
 
       <p style="margin-top:10px;">
-        Our advice is simple: <strong>get multiple quotes, ask lots of questions and compare your options side by side.</strong> 
-        Before you sign a contract for a $30,000 walk in tub, reach out to an Aging Safely Baths specialist. 
+        Our advice is simple: <strong>get multiple quotes, ask lots of questions and compare your options side by side.</strong>
+        Before you sign a contract for a very expensive walk in tub, reach out to an Aging Safely Baths specialist.
         Many customers are pleasantly surprised by how much they can save while still getting top-tier accessibility and hydrotherapy features.
       </p>
     </div>
@@ -1044,7 +1073,7 @@
           <li>We review your warranty and answer questions before we leave the home.</li>
         </ul>
         <p style="margin-top:8px;">
-          This path is ideal for homeowners who want a single point of contact, a clear completion date and reassurance that 
+          This path is ideal for homeowners who want a single point of contact, a clear completion date and reassurance that
           everything was installed per manufacturer guidelines for full warranty protection.
         </p>
       </div>
@@ -1053,7 +1082,7 @@
         <div class="card-tag">DIY delivery</div>
         <h3>“I have a contractor” — keep control and still get support</h3>
         <p>
-          Many customers have a trusted contractor, plumber or family member in the trades. In that case, 
+          Many customers have a trusted contractor, plumber or family member in the trades. In that case,
           DIY delivery can be a smart way to save on labor while still getting the quality handicap bathtub you need.
         </p>
         <ul class="card-list">
@@ -1063,12 +1092,11 @@
           <li>When installed according to manufacturer guidelines, your warranty remains in place.</li>
         </ul>
         <p style="margin-top:8px;">
-          DIY delivery does not mean you are on your own. It simply means you control the timeline and choose who does the labor — 
+          DIY delivery does not mean you are on your own. It simply means you control the timeline and choose who does the labor —
           while still benefiting from our product expertise and support.
         </p>
 
         <div class="hero-img-wrap" style="margin-top:10px;">
-          <!-- tub being received from shipping -->
           <img src="https://cdn.shopify.com/s/files/1/0932/0841/2441/files/denverwalkintubimage.jpg?v=1741929811" alt="Handicap bathtub shipment delivered to home">
         </div>
         <p style="font-size:12px; color:var(--muted); margin-top:4px;">
@@ -1080,24 +1108,23 @@
     <div class="strip">
       <h3>Not sure which path fits you best?</h3>
       <p>
-        It is completely normal to feel unsure which option is best. During your free phone consultation, 
+        It is completely normal to feel unsure which option is best. During your free phone consultation,
         we will walk through your budget, timeline, health needs and support system.
       </p>
       <p>
-        If you have a caregiver or family member helping with bathing, we also encourage them to join the call. 
-        Handicap bathtubs often serve both the person bathing and the person assisting — and the right 
+        If you have a caregiver or family member helping with bathing, we also encourage them to join the call.
+        Handicap bathtubs often serve both the person bathing and the person assisting — and the right
         configuration can make life easier for everyone.
       </p>
     </div>
   </section>
 
-  <!-- WALK-IN TUB PLANNER LINK -->
+  <!-- WALK-IN TUB PLANNER -->
   <section id="planner">
     <div class="section-header">
       <h2>Use our Walk-In Tub Planner to clarify your handicap bathtub needs</h2>
       <div class="section-tagline">
-        Not ready to talk to anyone yet? Our free walk-in tub planner helps you organize measurements, 
-        health considerations and must-have features before you call.
+        Not ready to talk to anyone yet? Our free walk-in tub planner helps you organize measurements, health considerations and must-have features before you call.
       </div>
     </div>
 
@@ -1106,17 +1133,17 @@
         <div class="card-tag">Free planning tool</div>
         <h3>Download or print the planner before you commit to any brand</h3>
         <p>
-          The <a href="https://walkintubs4less.com/pages/walk-in-tub-planner" target="_blank" rel="noopener">Walk-In Tub Planner</a> 
+          The <a href="https://walkintubs4less.com/pages/walk-in-tub-planner" target="_blank" rel="noopener">Walk-In Tub Planner</a>
           was created to help seniors, caregivers and contractors ask better questions before buying a handicap bathtub or walk in tub.
         </p>
         <ul class="card-list">
           <li>Room to record bathroom measurements and door widths.</li>
           <li>Questions about circulation, arthritis, balance and transfer needs.</li>
           <li>Space to compare quotes from different companies side by side.</li>
-          <li>Reminders about electrical, drain location, and hot water capacity.</li>
+          <li>Reminders about electrical, drain location and hot water capacity.</li>
         </ul>
         <p style="margin-top:8px;">
-          Even if you ultimately choose another company, this planner will help ensure you choose a handicap bathtub 
+          Even if you ultimately choose another company, this planner will help you choose a handicap bathtub
           that actually fits your space, your health needs and your long-term plans to age in place.
         </p>
         <p style="margin-top:8px;">
@@ -1130,21 +1157,21 @@
         <div class="card-tag">Hydrotherapy & comfort</div>
         <h3>Handicap bathtubs can be safe <em>and</em> spa-like</h3>
         <p>
-          A common misconception is that handicap bathtubs are purely functional and clinical. 
+          A common misconception is that handicap bathtubs are purely functional and clinical.
           In reality, many accessible tubs include warm air jets, hydrotherapy systems, heated seats and backrests that can help:
         </p>
         <ul class="card-list">
-          <li>Ease arthritis pain and muscle tension.</li>
-          <li>Support circulation and post-surgery recovery (with doctor guidance).:contentReference[oaicite:6]{index=6}</li>
-          <li>Promote relaxation, deeper sleep and stress relief.</li>
+          <li>Ease joint stiffness and muscle tension for many users.</li>
+          <li>Support relaxation as part of a calming evening routine.</li>
+          <li>Promote a greater sense of comfort and security during bath time.</li>
         </ul>
         <p style="margin-top:8px;">
-          Our team can help you decide whether a soaker, air system, water jet system or combination system makes the most sense for your health, budget and local water quality.
+          Our team can help you decide whether a soaker, air system, water jet system or combination system makes the most sense
+          for your health, budget and local water quality.
         </p>
 
         <div class="hero-img-wrap" style="margin-top:10px;">
-          <!-- wheelchair accessible transfer bathtub -->
-          <img src="https://cdn.shopify.com/s/files/1/0932/0841/2441/files/s747262047514780878_p1488_i13_w1400.webp?v=1743640894" alt="Wheelchair accessible handicap bathtub">
+          <img src="https://cdn.shopify.com/s/files/1/0932/0841/2441/files/s747262047514780878_p1488_i13_w1400.webp?v=1743640894" alt="Wheelchair accessible handicap bathtub with hydrotherapy">
         </div>
       </div>
     </div>
@@ -1165,23 +1192,23 @@
           <h3>How is a handicap bathtub different from a regular walk in tub?</h3>
           <p>
             All handicap bathtubs are walk in tubs, but not all walk in tubs are ideal for people with disabilities or mobility challenges.
-            True handicap tubs are designed with accessibility first: lower threshold heights, secure grab bar placement, 
-            wheelchair-friendly door openings, transfer benches, non-slip floors and easy-to-reach controls.:contentReference[oaicite:7]{index=7}
+            True handicap tubs are designed with accessibility first: lower threshold heights, secure grab bar placement,
+            wheelchair-friendly door openings, transfer benches, non-slip floors and easy-to-reach controls.
           </p>
         </div>
         <div class="faq-item">
           <h3>Will Medicare or insurance pay for a handicap bathtub?</h3>
           <p>
-            In most cases, traditional Medicare treats handicap tubs and walk in bathtubs as home upgrades, not covered medical equipment. 
-            However, some Medicare Advantage plans, Medicaid programs, VA benefits and local grant programs may offer assistance for accessibility 
-            modifications. The best first step is to call your plan and ask specifically about accessibility or bathroom safety benefits.:contentReference[oaicite:8]{index=8}
+            In many cases, traditional Medicare treats handicap tubs and walk in bathtubs as home upgrades, not covered medical equipment.
+            However, some Medicare Advantage plans, Medicaid programs, VA benefits and local grant programs may offer assistance for accessibility
+            modifications. The best first step is to call your plan and ask specifically about accessibility or bathroom safety benefits.
           </p>
         </div>
         <div class="faq-item">
           <h3>How long does installation usually take?</h3>
           <p>
-            Many handicap bathtubs can be installed in as little as one to three days once materials are on site — especially when replacing 
-            an existing tub in the same footprint. More complex projects, like moving plumbing or converting from a small shower, can take longer.:contentReference[oaicite:9]{index=9}
+            Many handicap bathtubs can be installed in as little as one to three days once materials are on site — especially when replacing
+            an existing tub in the same footprint. More complex projects, like moving plumbing or converting from a small shower, can take longer.
           </p>
         </div>
       </div>
@@ -1190,22 +1217,25 @@
         <div class="faq-item">
           <h3>What if my bathroom is very small?</h3>
           <p>
-            Small bathrooms are common. In those cases, we often recommend compact handicap tubs, front-drain designs or carefully selected 
-            wheelchair transfer tubs that minimize space while maximizing safety. We can review photos, basic measurements and your mobility 
+            Small bathrooms are common. In those cases, we often recommend compact handicap tubs, front-drain designs or carefully selected
+            wheelchair transfer tubs that minimize space while maximizing safety. We can review photos, basic measurements and your mobility
             needs to propose specific options.
           </p>
         </div>
         <div class="faq-item">
           <h3>Can you help if I also need a handicap shower?</h3>
           <p>
-            Yes. Aging Safely Baths also offers <a href="https://www.agingsafelybaths.com/handicap-showers/" target="_blank" rel="noopener">handicap showers and roll in shower systems</a> designed for wheelchairs and walkers. 
+            Yes. Aging Safely Baths also offers
+            <a href="https://www.agingsafelybaths.com/handicap-showers/" target="_blank" rel="noopener">handicap showers and roll in shower systems</a>
+            designed for wheelchairs and walkers.
             Some customers choose a handicap bathtub in one bathroom and a barrier-free shower in another to cover all scenarios.
           </p>
         </div>
         <div class="faq-item">
           <h3>Where can I learn more about safety and hydrotherapy?</h3>
           <p>
-            Our Safety &amp; Self-Care blog on <a href="https://www.agingsafelybaths.com" target="_blank" rel="noopener">AgingSafelyBaths.com</a> shares practical tips on preventing falls, using hydrotherapy and improving quality of life with walk in tubs and handicap bathtubs.:contentReference[oaicite:10]{index=10}
+            Our articles on <a href="https://www.agingsafelybaths.com" target="_blank" rel="noopener">AgingSafelyBaths.com</a> share practical tips on preventing falls,
+            using hydrotherapy and improving quality of life with walk in tubs, handicap bathtubs and accessible showers.
           </p>
         </div>
       </div>
@@ -1226,8 +1256,7 @@
         <div class="blog-meta">Education • 7–9 minute read</div>
         <h3>Handicap Bathtubs vs Standard Tubs: What Seniors and Caregivers Overlook</h3>
         <p>
-          A side-by-side look at standard tubs and true handicap bathtubs — including transfer safety, pain levels, caregiver 
-          strain and long-term aging in place.
+          A side-by-side look at standard tubs and true handicap bathtubs — including transfer safety, comfort, caregiver strain and long-term aging in place.
         </p>
         <a href="blog-handicap-vs-standard-bathtubs.html" class="read-link">Read this article →</a>
       </article>
@@ -1243,13 +1272,26 @@
     </div>
   </section>
 
+  <!-- LOCATIONS / INTERNAL LINK STRIP -->
+  <section>
+    <div class="locations-strip">
+      <strong>Serving handicap bathtub and walk in tub customers nationwide.</strong>
+      <div class="locations-links">
+        <a href="https://www.agingsafelybaths.com/locations/colorado-walk-in-tubs-roll-in-showers/" target="_blank" rel="noopener">Walk in tubs Colorado</a>
+        <a href="https://www.agingsafelybaths.com/locations/texas-walk-in-tubs-roll-in-showers/" target="_blank" rel="noopener">Walk in tubs Texas</a>
+        <a href="https://www.agingsafelybaths.com/locations/florida-walk-in-tubs-roll-in-showers/" target="_blank" rel="noopener">Walk in tubs Florida</a>
+        <a href="https://www.agingsafelybaths.com/locations/new-york-walk-in-tubs-roll-in-showers/" target="_blank" rel="noopener">Walk in tubs New York</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA & CONTACT -->
   <section id="contact">
     <div class="cta-band">
       <div>
         <h2>Ready to explore handicap bathtub options for your home?</h2>
         <p>
-          Whether you are in the early research phase or comparing a quote from a big national brand, we are here to help. 
+          Whether you are in the early research phase or comparing a quote from a big national brand, we are here to help.
           A short conversation can save you time, stress and sometimes thousands of dollars on a safer, more comfortable handicap bathtub.
         </p>
         <div class="cta-actions">
@@ -1323,8 +1365,8 @@
             Request my handicap bathtub options
           </button>
           <div class="form-note">
-            By submitting, you agree that an Aging Safely Baths representative may contact you regarding handicap bathtubs and accessibility solutions. 
-            We do not sell your information to third parties.
+            By submitting, you agree that an Aging Safely Baths representative may contact you regarding handicap bathtubs and accessibility solutions.
+            We do not sell your information to third parties. Always consult your doctor before changing your bathing routine or using hydrotherapy features.
           </div>
         </form>
       </div>
@@ -1334,38 +1376,55 @@
 </main>
 
 <footer>
-  <div style="max-width:1120px; margin:0 auto;">
+  <div class="footer-inner">
     HandicapBathtubs.com is operated by Aging Safely Baths, a family-owned company helping seniors and people with disabilities since 2012.
     <br>
-    Explore related solutions at 
-    <a href="https://www.agingsafelybaths.com/walk-in-tubs/" target="_blank" rel="noopener">AgingSafelyBaths.com – Walk In Tubs</a> 
-    and 
+    Explore related solutions at
+    <a href="https://www.agingsafelybaths.com/walk-in-tubs/" target="_blank" rel="noopener">AgingSafelyBaths.com – Walk In Tubs</a>
+    and
     <a href="https://www.agingsafelybaths.com/handicap-showers/" target="_blank" rel="noopener">Handicap Showers</a>.
     <br><br>
     Call Toll Free: 1-888-779-2284
+    <div class="footer-links-row">
+      <span>Helpful links:</span>
+      <a href="sitemap.xml">XML Sitemap</a>
+      <a href="#planner">Walk-In Tub Planner</a>
+      <a href="#blog">Handicap Bathtub Guides</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
 </footer>
 
-<!-- EmailJS or other form handler wiring goes here -->
+<!-- EmailJS: live form wiring -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  // NOTE: Reuse the same form handling structure we used on your earlier microsite.
-  // Example EmailJS wiring (replace with your actual IDs/keys):
-
-  /*
-  (function(){
-    emailjs.init("YOUR_PUBLIC_KEY_HERE");
+  (function() {
+    if (typeof emailjs !== "undefined") {
+      emailjs.init("alWutsHLG6c3h9P2j"); // Public key
+    }
   })();
 
-  document.getElementById('handicapbathtubs-contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-      .then(function() {
-        alert('Thank you! Your message has been sent. An Aging Safely Baths representative will follow up shortly.');
-      }, function(error) {
+  (function() {
+    var form = document.getElementById('handicapbathtubs-contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (typeof emailjs === "undefined") {
         alert('There was an issue sending your request. Please call 1-888-779-2284 or try again.');
-      });
-  });
-  */
+        return;
+      }
+
+      emailjs.sendForm('service_usimtub', 'template_5n0cskt', this)
+        .then(function() {
+          alert('Thank you! Your handicap bathtub information request has been sent. An Aging Safely Baths representative will follow up shortly.');
+          form.reset();
+        }, function(error) {
+          alert('There was an issue sending your request. Please call 1-888-779-2284 or try again.');
+        });
+    });
+  })();
 </script>
 
 </body>
