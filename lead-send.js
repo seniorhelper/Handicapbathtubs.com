@@ -3,12 +3,16 @@
    which saves each lead to disk first and then emails the sales inbox. If that server says this domain
    is not on its allow-list (403), or cannot be reached, the form falls back to the sender it used before
    (FormSubmit or EmailJS), so no lead is lost either way. Nothing here changes what the visitor sees.
-   Privacy: details travel in the POST body only, never in a URL; no cookies; no third-party trackers. */
+   DUAL: while email delivery from the lead server is still being confirmed, the previous sender also gets a copy
+   in the background after the server accepts, so the sales inbox keeps seeing every lead. Set DUAL to false once
+   the lead-server emails are confirmed landing. Privacy: details travel in the POST body only, never in a URL;
+   no cookies; no third-party trackers. */
 (function () {
   "use strict";
   if (window.__asbLeadRouter) { return; }
   window.__asbLeadRouter = true;
   var LEAD = "https://clients.eyetoad.com/lead/send.php";
+  var DUAL = true;
   var shown = Date.now();
   var SITE = location.hostname.replace(/^www\./, "");
 
@@ -75,6 +79,7 @@
       var fd = toFormData(opts.body);
       ["service_id", "template_id", "user_id", "accessToken", "_captcha", "_template"].forEach(function (k) { fd.delete(k); });
       return sendToLeadServer(fd).then(function (res) {
+        if (DUAL) { try { fetchOrig(url, opts).catch(function () {}); } catch (e) { /* ignore */ } }
         if (/emailjs/i.test(u)) { try { return new Response("OK", { status: 200 }); } catch (e) { return { ok: true, status: 200, text: function () { return Promise.resolve("OK"); } }; } }
         return fakeOk(res.id);
       }).catch(function () { return fetchOrig(url, opts); });
@@ -90,7 +95,10 @@
     ej.sendForm = function (serviceId, templateId, form, opts) {
       var el = typeof form === "string" ? document.querySelector(form) : form;
       if (!el || !(el instanceof HTMLFormElement) || !fetchOrig) { return orig(serviceId, templateId, form, opts); }
-      return sendToLeadServer(new FormData(el)).then(function (res) { return { status: 200, text: "OK", id: res.id }; })
+      return sendToLeadServer(new FormData(el)).then(function (res) {
+          if (DUAL) { try { Promise.resolve(orig(serviceId, templateId, form, opts)).catch(function () {}); } catch (e) { /* ignore */ } }
+          return { status: 200, text: "OK", id: res.id };
+        })
         .catch(function () { return orig(serviceId, templateId, form, opts); });
     };
   }
