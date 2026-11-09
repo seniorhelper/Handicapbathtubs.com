@@ -1,26 +1,23 @@
-/* Aging Safely network lead router, v1 2026-11-08.
-   Sends every quote form on this site to the company lead server (clients.eyetoad.com/lead/send.php),
-   which saves each lead to disk first and then emails the sales inbox. If that server says this domain
-   is not on its allow-list (403), or cannot be reached, the form falls back to the sender it used before
-   (FormSubmit or EmailJS), so no lead is lost either way. Nothing here changes what the visitor sees.
-   DUAL: while email delivery from the lead server is still being confirmed, the previous sender also gets a copy
-   in the background after the server accepts, so the sales inbox keeps seeing every lead. Set DUAL to false once
-   the lead-server emails are confirmed landing. Privacy: details travel in the POST body only, never in a URL;
-   no cookies; no third-party trackers. */
+/* Eye To Ad lead router v2 (2026-11-09). Every form on this site posts to our own lead server
+   (clients.eyetoad.com/lead/send.php), which saves the lead first and then emails the alert.
+   No third-party form service (FormSubmit / EmailJS) is used any more. Covers: fetch() calls the page
+   already makes to FormSubmit/EmailJS, emailjs.sendForm(), and plain <form action> posts.
+   Honeypot: a filled _honey field is silently dropped. Details travel in the POST body only. */
 (function () {
   "use strict";
-  if (window.__asbLeadRouter) { return; }
-  window.__asbLeadRouter = true;
+  if (window.__etaLeadRouter) { return; }
+  window.__etaLeadRouter = true;
   var LEAD = "https://clients.eyetoad.com/lead/send.php";
-  var DUAL = true;
   var shown = Date.now();
   var SITE = location.hostname.replace(/^www\./, "");
+  var fetchOrig = window.fetch ? window.fetch.bind(window) : null;
+  var DROP = ["service_id", "template_id", "user_id", "accessToken", "_captcha", "_template", "_honey", "_next"];
 
   function meta(fd) {
     fd.append("site", SITE);
     fd.append("page", location.pathname.slice(0, 300));
     fd.append("_t", String(shown));
-    if (!fd.has("_subject")) { fd.append("_subject", "New lead — " + SITE); }
+    if (!fd.has("_subject")) { fd.append("_subject", "New lead - " + SITE); }
     try {
       var q = new URLSearchParams(location.search);
       ["utm_source", "utm_medium", "utm_campaign", "gclid"].forEach(function (k) {
@@ -52,56 +49,88 @@
     return fd;
   }
 
-  // Returns a promise of {ok:true,id} when the lead server took the lead; rejects when it should fall back.
-  function sendToLeadServer(fd) {
+  function isBot(fd) { var h = fd.get("_honey"); return !!(h && String(h).trim()); }
+
+  function post(fd) {
     return fetchOrig(LEAD, { method: "POST", body: meta(fd), headers: { "Accept": "application/json" }, credentials: "omit", referrerPolicy: "strict-origin-when-cross-origin" })
       .then(function (r) {
         return r.json().catch(function () { return {}; }).then(function (j) {
           if (r.ok && j && j.ok) { return { ok: true, id: j.id || "" }; }
-          // 422 = the server rejected the details (no name or phone); let the page's own sender handle it.
           throw new Error("lead-server " + r.status);
         });
       });
   }
 
-  function fakeOk(id) {
-    var body = JSON.stringify({ success: "true", ok: true, id: id, message: "Thanks. We got your request." });
-    try { return new Response(body, { status: 200, headers: { "Content-Type": "application/json" } }); }
-    catch (e) { return { ok: true, status: 200, json: function () { return Promise.resolve(JSON.parse(body)); }, text: function () { return Promise.resolve(body); } }; }
+  // One retry, so a brief network blip does not lose a lead.
+  function sendToLeadServer(fd) {
+    if (isBot(fd)) { return Promise.resolve({ ok: true, id: "bot" }); }
+    DROP.forEach(function (k) { fd.delete(k); });
+    return post(fd).catch(function () {
+      return new Promise(function (res) { setTimeout(res, 1200); }).then(function () { return post(fd); });
+    });
   }
 
-  var fetchOrig = window.fetch ? window.fetch.bind(window) : null;
+  function resp(status, body) {
+    try { return new Response(body, { status: status, headers: { "Content-Type": "application/json" } }); }
+    catch (e) { return { ok: status < 400, status: status, json: function () { return Promise.resolve(JSON.parse(body)); }, text: function () { return Promise.resolve(body); } }; }
+  }
+
   if (fetchOrig) {
     window.fetch = function (url, opts) {
       var u = typeof url === "string" ? url : (url && url.url) || "";
       var isForm = /formsubmit\.co\/ajax\//i.test(u) || /api\.emailjs\.com\/api\/v1\.0\/email\/send/i.test(u);
       if (!isForm || !opts || String(opts.method || "GET").toUpperCase() !== "POST") { return fetchOrig(url, opts); }
       var fd = toFormData(opts.body);
-      ["service_id", "template_id", "user_id", "accessToken", "_captcha", "_template"].forEach(function (k) { fd.delete(k); });
       return sendToLeadServer(fd).then(function (res) {
-        if (DUAL) { try { fetchOrig(url, opts).catch(function () {}); } catch (e) { /* ignore */ } }
-        if (/emailjs/i.test(u)) { try { return new Response("OK", { status: 200 }); } catch (e) { return { ok: true, status: 200, text: function () { return Promise.resolve("OK"); } }; } }
-        return fakeOk(res.id);
-      }).catch(function () { return fetchOrig(url, opts); });
+        if (/emailjs/i.test(u)) { return resp(200, "OK"); }
+        return resp(200, JSON.stringify({ success: "true", ok: true, id: res.id, message: "Thanks. We got your request." }));
+      }).catch(function () {
+        return resp(502, JSON.stringify({ success: "false", ok: false, message: "Could not send. Please call us or try again." }));
+      });
     };
   }
 
-  // EmailJS SDK sites: wrap emailjs.sendForm the same way.
+  // EmailJS SDK sites.
   function wrapEmailJs() {
     var ej = window.emailjs;
-    if (!ej || !ej.sendForm || ej.__asbWrapped) { return; }
-    var orig = ej.sendForm.bind(ej);
-    ej.__asbWrapped = true;
-    ej.sendForm = function (serviceId, templateId, form, opts) {
+    if (!ej || !ej.sendForm || ej.__etaWrapped) { return; }
+    ej.__etaWrapped = true;
+    ej.sendForm = function (serviceId, templateId, form) {
       var el = typeof form === "string" ? document.querySelector(form) : form;
-      if (!el || !(el instanceof HTMLFormElement) || !fetchOrig) { return orig(serviceId, templateId, form, opts); }
-      return sendToLeadServer(new FormData(el)).then(function (res) {
-          if (DUAL) { try { Promise.resolve(orig(serviceId, templateId, form, opts)).catch(function () {}); } catch (e) { /* ignore */ } }
-          return { status: 200, text: "OK", id: res.id };
-        })
-        .catch(function () { return orig(serviceId, templateId, form, opts); });
+      return sendToLeadServer(new FormData(el)).then(function (res) { return { status: 200, text: "OK", id: res.id }; });
     };
+    if (ej.send) {
+      ej.send = function (serviceId, templateId, params) {
+        var fd = new FormData();
+        Object.keys(params || {}).forEach(function (k) { if (params[k] != null) { fd.append(k, String(params[k])); } });
+        return sendToLeadServer(fd).then(function (res) { return { status: 200, text: "OK", id: res.id }; });
+      };
+    }
   }
   wrapEmailJs();
   if (!window.emailjs) { document.addEventListener("DOMContentLoaded", wrapEmailJs); window.addEventListener("load", wrapEmailJs); }
+
+  // Plain <form action="..."> posts the page did not already handle.
+  document.addEventListener("submit", function (e) {
+    var f = e.target;
+    if (!f || e.defaultPrevented || !(f instanceof HTMLFormElement) || !fetchOrig) { return; }
+    var a = String(f.getAttribute("action") || "");
+    if (!/formsubmit\.co|clients\.eyetoad\.com\/lead\/send\.php/i.test(a)) { return; }
+    e.preventDefault();
+    var fd = new FormData(f);
+    var next = fd.get("_next");
+    var btn = f.querySelector("[type=submit]");
+    if (btn) { btn.disabled = true; }
+    sendToLeadServer(fd).then(function () {
+      if (next && /^(https?:\/\/|\/)/.test(String(next))) { location.href = String(next); return; }
+      var d = document.createElement("div");
+      d.setAttribute("role", "status");
+      d.style.cssText = "padding:18px;border:1px solid #2e7d32;border-radius:8px;background:#e8f5e9;color:#14213d;font:600 17px/1.5 system-ui,sans-serif";
+      d.textContent = "Thank you! We received your request and will be in touch shortly.";
+      f.parentNode.replaceChild(d, f);
+    }).catch(function () {
+      if (btn) { btn.disabled = false; }
+      alert("Sorry, that did not send. Please try again or call us.");
+    });
+  }, false);
 })();
