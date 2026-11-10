@@ -42,3 +42,10 @@ Aging Safely Baths & More, LLC. 1-888-779-2284, sales@agingsafelybaths.com. BBB 
 
 ## Measurement
 GA4 property per site (account 45765285), key events generate_lead and phone_click. Search Console: bare domain property, sitemap.xml submitted. Check queries and positions in GA4's Search Console report at the start of every project.
+
+## 2026-11-10 (branch seo-leads-2026-11-10, not pushed)
+Based on GSC: accessible baths 125 impr pos 26.5, bathtubs for disabled people pos 25.8, how to choose a walk-in tub for mobility issues pos 42 (home page held that H2).
+- New /choosing-a-walk-in-tub-for-mobility-issues/: decision table by condition (wheelchair transfer, stroke/hemiplegia, arthritis, bariatric, MS heat, lift users) that links out to the transfer-tub, SCI, MS and caregiver pages. Sources opened Nov 10: access-board.gov ADA 608/610, stroke.org bathing tips, arthritis.org heat therapy, Ella's Bubbles weight-limit article and TransferXXL spec page, CPSC 5098. Now owns "how to choose a walk-in tub for mobility issues"; home H2 renamed and links to it.
+- Home title/meta: "Accessible Baths & Handicap Bathtubs for Disabled People".
+- Fixed the MS page quote form data-where (was /bathing-after-spinal-cord-injury/).
+Next: request indexing for home + new page; ALS and amputee pages still open.
