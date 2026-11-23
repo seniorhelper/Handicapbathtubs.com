@@ -1,22 +1,30 @@
-/* Quote form: one FormSubmit AJAX request per submission to sales@agingsafelybaths.com,
-   with a honeypot, a time trap and an engagement check.
-   A request counts as delivered only when FormSubmit answers with success "true". */
+/* Quote forms. Posts straight to the Eye To Ad lead server (clients.eyetoad.com/lead/send.php),
+   which saves the lead first and then emails the alert. No third-party form service is used.
+   Spam guards: honeypot (_honey) and a minimum 3 seconds on the page. Success is shown only when the
+   lead server answers {ok:true}; anything else shows the phone number. Details travel in the POST body only. */
 (function () {
+  'use strict';
+  var LEAD = 'https://clients.eyetoad.com/lead/send.php';
   var PHONE = '1-888-779-2284';
-  var ENDPOINT = 'https://formsubmit.co/ajax/sales@agingsafelybaths.com';
-  var loadedAt = Date.now();
+  var shown = Date.now();
+  var SITE = location.hostname.replace(/^www\./, '');
   var yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
 
+  function post(fd) {
+    return fetch(LEAD, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' }, credentials: 'omit', referrerPolicy: 'strict-origin-when-cross-origin' })
+      .then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          if (r.ok && j && j.ok === true) { return j; }
+          throw new Error('lead-server ' + r.status);
+        });
+      });
+  }
+
   document.querySelectorAll('form.qform').forEach(function (form) {
-    var engaged = false;
-    ['keydown', 'pointerdown', 'input'].forEach(function (ev) {
-      form.addEventListener(ev, function () { engaged = true; }, { passive: true });
-    });
     var status = form.querySelector('.qstatus');
     var btn = form.querySelector('button[type="submit"]');
     var busy = false;
-
     function say(cls, msg) { status.className = 'qstatus ' + cls; status.textContent = msg; }
 
     form.addEventListener('submit', function (e) {
@@ -37,34 +45,40 @@
         say('bad', 'Please check the highlighted fields: your name, a 10-digit phone number and a U.S. ZIP or Canadian postal code.');
         return;
       }
-      if (el['_honey'].value) return;
-      if (Date.now() - loadedAt < 3000) { say('bad', 'Please take a moment to check your details, then send again.'); return; }
-      if (!engaged) { say('bad', 'Please check your details, then send again, or call ' + PHONE + '.'); return; }
+      if (el['_honey'].value.trim()) { say('ok', 'Thank you. Your request was sent.'); form.reset(); return; }
+      if (Date.now() - shown < 3000) { say('bad', 'Please take a moment to check your details, then send again.'); return; }
 
-      var data = {
-        name: name.value.trim(), phone: phone.value.trim(), zip: z, email: email.value.trim(),
-        mobility: el['mobility'].value, bath_help: el['bath_help'].value, notes: el['notes'].value.trim(),
-        page: location.pathname, form_location: form.getAttribute('data-where'),
-        _subject: 'Quote request from handicapbathtubs.com', _template: 'table', _captcha: 'false'
-      };
+      var fd = new FormData();
+      fd.append('user_name', name.value.trim());
+      fd.append('user_phone', phone.value.trim());
+      fd.append('user_zip', z);
+      if (email.value.trim()) fd.append('user_email', email.value.trim());
+      fd.append('mobility', el['mobility'].value);
+      fd.append('bath_help', el['bath_help'].value);
+      fd.append('message', el['notes'].value.trim());
+      fd.append('form_location', form.getAttribute('data-where') || '');
+      fd.append('site', SITE);
+      fd.append('page', location.pathname.slice(0, 300));
+      fd.append('_t', String(shown));
+      fd.append('_subject', 'New lead - ' + SITE);
+      try {
+        var q = new URLSearchParams(location.search);
+        ['utm_source', 'utm_medium', 'utm_campaign', 'gclid'].forEach(function (k) {
+          var v = q.get(k); if (v) fd.append('lead_' + k, v.slice(0, 120));
+        });
+        var ref = document.referrer && document.referrer.indexOf(location.host) === -1 ? document.referrer.slice(0, 200) : '';
+        if (ref) fd.append('lead_referrer', ref);
+      } catch (err) { /* ignore */ }
+      fd.append('lead_device', window.innerWidth < 760 ? 'phone' : 'desktop');
+
       busy = true; btn.disabled = true; btn.textContent = 'Sending...'; say('', '');
-      fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      })
-        .then(function (r) { return r.json().catch(function () { return {}; }); })
-        .then(function (j) {
-          if (j && String(j.success) === 'true') {
-            say('ok', 'Thank you. Your request was delivered and a specialist will call you, usually within one business day. Need us sooner? Call ' + PHONE + '.');
-            form.reset();
-          } else {
-            say('bad', 'Sorry, your request did not go through. Please call ' + PHONE + ' and we will take it by phone.');
-          }
+      post(fd).catch(function () { return new Promise(function (res) { setTimeout(res, 1200); }).then(function () { return post(fd); }); })
+        .then(function () {
+          say('ok', 'Thank you. Your request was delivered and a specialist will call you, usually within one business day. Need us sooner? Call ' + PHONE + '.');
+          form.reset();
+          if (window.gtag) { try { window.gtag('event', 'generate_lead', { form_id: form.id || 'quote' }); } catch (err) { /* ignore */ } }
         })
-        .catch(function () {
-          say('bad', 'Sorry, your request could not be sent. Please call ' + PHONE + ' and we will take it by phone.');
-        })
+        .catch(function () { say('bad', 'Sorry, your request did not go through. Please call ' + PHONE + ' and we will take it by phone.'); })
         .then(function () { busy = false; btn.disabled = false; btn.textContent = 'Send my request'; });
     });
   });

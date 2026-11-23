@@ -25,11 +25,11 @@
         r.push('A service-connected disability may still qualify for <strong>HISA</strong> (up to $6,800 lifetime, with a VA prescription).');
       } else {
         if (home === 'temp') {
-          r.push('<strong>TRA</strong> may fit: it adapts a family member\'s home where you are living for a while. FY 2026 maximum: $50,961 if SAH-eligible, $9,100 if SHA-eligible.');
+          r.push('<strong>TRA</strong> may fit: it adapts a family member\'s home where you are living for a while. FY 2027 maximum: $53,585 if SAH-eligible, $9,568 if SHA-eligible.');
         } else if (home === 'family' && grant === 'SAH') {
           r.push('<strong>SAH</strong> requires that you own or will own the home. If the home stays a family member\'s, ask the VA whether <strong>SHA</strong> or <strong>TRA</strong> applies.');
         } else {
-          r.push('<strong>' + grant + '</strong> may fit. FY 2026 maximums: SAH $126,526, SHA $25,350, usable up to six times.');
+          r.push('<strong>' + grant + '</strong> may fit. FY 2027 maximums: SAH $133,042, SHA $26,654, usable up to six times.');
         }
         if (dx === 'sah911') r.push('The single-leg category after September 11, 2001 is capped at 120 approvals a fiscal year.');
         if (grant.indexOf('SAH') > -1) r.push('An SAH home needs an adapted bathroom with a roll-in shower. Use the plan checker below.');
